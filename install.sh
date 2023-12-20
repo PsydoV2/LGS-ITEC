@@ -8,7 +8,6 @@ cd /bin/usr/command/
 
 # Überprüfe, ob main.sh im Ordner existiert
 if [ -f "main.sh" ]; then
-    # Ändere die Berechtigungen von main.sh, um sie ausführbar zu machen
     chmod +x main.sh
     echo "Installiert"
 else
