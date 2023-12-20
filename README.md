@@ -15,3 +15,9 @@ sudo bash install.sh
 ```bash
 sudo bash uninstall.sh
 ```
+
+## Usage
+
+```bash
+testping
+```
