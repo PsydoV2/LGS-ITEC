@@ -1,6 +1,6 @@
 ## Install
 
-git clone https://github.com/PsydoV2/ProjectScriptITEC
+git clone https://github.com/PsydoV2/ProjectScriptITEC \n
 cd 
 sudo bash install.sh
 
