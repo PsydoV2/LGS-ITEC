@@ -3,6 +3,7 @@
 if [ -f "src/main.sh" ]; then
     # Verschieben von main.sh nach /usr/local/bin/testping
     mv src/main.sh /usr/local/bin/testping
+    rm src
 
     # Überprüfen, ob die Datei erfolgreich verschoben wurde
     if [ -f "/usr/local/bin/testping" ]; then
