@@ -1,17 +1,20 @@
 #!/bin/bash
 
-# Test ob Ordner schon existiert
-if [ ! -d "/bin/usr/testping/" ]; then
-    mkdir -p /bin/usr/testping/
+# Überprüfen, ob der Ordner bereits existiert, wenn nicht, erstellen
+if [ ! -d "usr/bin/testping" ]; then
+    mkdir -p usr/bin/testping
 fi
 
 # Datei wird verschoben
-mv /src/main.sh /bin/usr/testping/
+if [ -f "src/main.sh" ]; then
+    mv src/main.sh usr/bin/testping/
 
-# Überprüfung ob es Erfolgreich verschoben wurde
-if [ -f "/bin/usr/testping/main.sh" ]; then
-    chmod +x /bin/usr/testping/main.sh
-    echo "Skript erfolgreich installiert."
+    if [ -f "usr/bin/testping/main.sh" ]; then
+        chmod +x usr/bin/testping/main.sh
+        echo "Skript erfolgreich installiert."
+    else
+        echo "Skript konnte nicht installiert werden."
+    fi
 else
-    echo "Skript konnte nicht installiert werden."
+    echo "Die Datei main.sh wurde im Verzeichnis src nicht gefunden."
 fi
