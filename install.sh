@@ -2,12 +2,14 @@
 
 if [ -f "src/main.sh" ]; then
     cp src/main.sh /usr/local/bin/testping
-    cp src/testping.1 /usr/share/man/man1/
-    mandb
+    # cp src/testping.1 /usr/share/man/man1/
+    # mandb
     # rm src
 
     if [ -f "/usr/local/bin/testping" ]; then
-        chmod +x /usr/local/bin/testping 
+        chown root:users /usr/local/bin/testping  # Sonst ist root alleiniger besitzer und man muss sudo benutzen
+        chmod 755 /usr/local/bin/testping # root kann lesen und ändern jeder andere nur lesen und ausführen
+
         echo "Skript unter 'testping' verfügbar."
     else
         echo "Fehler beim Installieren des Skripts."
