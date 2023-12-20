@@ -1,15 +1,17 @@
 #!/bin/bash
 
-# Verschiebe die Datei main.sh nach /bin/usr/command/ (falls sie dort noch nicht vorhanden ist)
-mv /command/main.sh /bin/usr/command/
+# Test ob Ordner schon existiert
+if [ ! -d "/bin/usr/testping/" ]; then
+    mkdir -p /bin/usr/testping/
+fi
 
-# Wechsel in das Verzeichnis /bin/usr/command/
-cd /bin/usr/command/
+# Datei wird verschoben
+mv /testping/main.sh /bin/usr/testping/
 
-# Überprüfe, ob main.sh im Ordner existiert
-if [ -f "main.sh" ]; then
-    chmod +x main.sh
-    echo "Installiert"
+# Überprüfung ob es Erfolgreich verschoben wurde
+if [ -f "/bin/usr/testping/main.sh" ]; then
+    chmod +x /bin/usr/testping/main.sh
+    echo "Skript erfolgreich installiert."
 else
-    echo "main.sh existiert nicht im Ordner /bin/usr/command/"
+    echo "Skript konnte nicht installiert werden."
 fi
