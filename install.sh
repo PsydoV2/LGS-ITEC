@@ -6,7 +6,7 @@ if [ ! -d "/bin/usr/testping/" ]; then
 fi
 
 # Datei wird verschoben
-mv /testping/main.sh /bin/usr/testping/
+mv /src/main.sh /bin/usr/testping/
 
 # Überprüfung ob es Erfolgreich verschoben wurde
 if [ -f "/bin/usr/testping/main.sh" ]; then
