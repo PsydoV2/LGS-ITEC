@@ -1,5 +1,5 @@
 rm /usr/local/bin/testping
-rm /usr/local/share/man/man8/testping.1
+rm /usr/local/man/man1/testping.1.gz
 
 if [ ! -f "/usr/local/bin/testping" ]; then
     echo "Erfolgreich entfernt!"

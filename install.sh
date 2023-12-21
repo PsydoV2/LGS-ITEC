@@ -1,14 +1,17 @@
 #!/bin/bash
+
 if [ -f "src/main.sh" ]; then
-    cp src/main.sh /usr/local/bin/testping
-    cp src/testping.1 /usr/local/share/man/man8/testping.1
-    gzip /usr/local/share/man/man8/testping.1
-    # mandb
-    # rm src
+    cp src/main.sh /usr/local/bin/testping      # Skript verschieben um es als Command ausführen zu können
+
+    cp src/testping.1 /usr/local/share/man/man1/testping.1  # Man page file verschieben
+    gzip /usr/local/man/man1/testping.1                 # Man page zip
+    mandb  # man pages updaten 
+    # rm -rf src
 
     if [ -f "/usr/local/bin/testping" ]; then
-        chown root:users /usr/local/bin/testping  # Sonst ist root alleiniger besitzer und man muss sudo benutzen
-        chmod 755 /usr/local/bin/testping # root kann lesen und ändern jeder andere nur lesen und ausführen
+        chown root:users /usr/local/bin/testping    # Damit man den Befehl nicht mit sudo ausführen muss
+        chmod 755 /usr/local/bin/testping           # Ausführrechte
+        chown root:users /usr/local/man/man1/testping.1.gzip    # Damit man man testping benutzen kann
 
         echo "Skript unter 'testping' verfügbar."
     else
