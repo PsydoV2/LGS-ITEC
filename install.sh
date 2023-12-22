@@ -6,6 +6,14 @@ if [ -f "src/main.sh" ]; then
     cp src/testping.1 /usr/local/share/man/man1/testping.1  # Man page file verschieben
     gzip /usr/local/man/man1/testping.1                 # Man page zip
     mandb  # man pages updaten 
+
+    touch src/logs.txt
+    touch src/hosts
+    touch src/cronjob
+    cp src/logs.txt /usr/local/bin/testping 
+    cp src/hosts /usr/local/bin/testping 
+    cp src/cronjob /usr/local/bin/testping  
+
     # rm -rf src
 
     if [ -f "/usr/local/bin/testping" ]; then
