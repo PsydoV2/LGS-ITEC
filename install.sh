@@ -11,7 +11,7 @@ if [ -f "src/main.sh" ]; then
     if [ -f "/usr/local/bin/testping" ]; then
         chown root:users /usr/local/bin/testping    # Damit man den Befehl nicht mit sudo ausführen muss
         chmod 755 /usr/local/bin/testping           # Ausführrechte
-        chown root:users /usr/local/man/man1/testping.1.gzip    # Damit man man testping benutzen kann
+        chown root:users /usr/local/man/man1/testping.1.gz    # Damit man man testping benutzen kann
 
         echo "Skript unter 'testping' verfügbar."
     else
