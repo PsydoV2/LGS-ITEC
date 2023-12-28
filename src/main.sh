@@ -6,9 +6,34 @@
 # Main Script
 # Man Page
 
-echo "Test"
 
-echo "Datei ausgabe!" >> /usr/share/testping/log.txt
-cat /usr/share/testping/log.txt
+pinging() {
+    echo "---------- Start Pinging ----------"
+    ping -c 4 www.google.com
+}
 
-# pwd
+editConfig() {
+    nano /usr/share/testping/config.cfg
+}
+
+addhost() {
+    if [ -n "$2" ]; then
+        echo "Die übergebene IP-Adresse ist: $2"
+    else
+        echo "Keine IP-Adresse angegeben."
+    fi
+}
+
+
+case "$1" in
+    "config")
+        editConfig
+        ;;
+    "addhost")
+        addhost "$@"
+        ;;
+    *)
+        pinging
+        ;;
+esac
+
