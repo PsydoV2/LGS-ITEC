@@ -1,25 +1,38 @@
-.TH TESTPING 1 "December 2023" "Version 1.0" "Testping Manual"
-
+.\" Manpage for testping
+.\" Contact Psydo for improvements and suggestions
+.TH testping 1 "December 2023" "Version 1.0" "testping"
 .SH NAME
-testping \- Description of what testping does
+testping \- Bash script to perform various network operations
 
 .SH SYNOPSIS
-testping [options] [arguments]
+.B testping
+[\fIconfig | addhost IP_ADDRESS | hosts\fR]
 
 .SH DESCRIPTION
-This section describes what the testping command does and how it works.
+This script performs various network operations such as pinging, editing configuration files, adding hosts, and displaying hosts.
 
+.PP
 .SH OPTIONS
-List of available options and their descriptions.
+.IP \fBconfig\fR
+Edit the configuration file.
+.IP \fBaddhost IP_ADDRESS\fR
+Add a new host with the specified IP_ADDRESS.
+.IP \fBhosts\fR
+Display the list of hosts.
 
 .SH EXAMPLES
-Example usages of the testping command.
+Display the list of hosts:
+.nf
+.B testping hosts
+.fi
+.PP
+Add a new host with IP address "192.168.1.100":
+.nf
+.B testping addhost 192.168.1.100
+.fi
 
 .SH AUTHOR
-Your name or authorship information.
+Written by Sebastian Falter
 
-.SH SEE ALSO
-Related commands or references.
-
-.SH BUGS
-Known issues or bugs, if any.
+.SH REPORTING BUGS
+Report bugs to: seb.falter@gmail.com

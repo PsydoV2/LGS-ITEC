@@ -18,10 +18,16 @@ editConfig() {
 
 addhost() {
     if [ -n "$2" ]; then
-        echo "Die übergebene IP-Adresse ist: $2"
+        echo /usr/share/testping/hosts >> $2
+        echo $2 " hinzugefügt!"
     else
         echo "Keine IP-Adresse angegeben."
     fi
+}
+
+printhosts(){
+    echo "Test"
+    cat /usr/share/testping/hosts
 }
 
 
@@ -32,6 +38,9 @@ case "$1" in
     "addhost")
         addhost "$@"
         ;;
+    "hosts")
+        printhosts
+    ;;
     *)
         pinging
         ;;
