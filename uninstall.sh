@@ -19,3 +19,13 @@ if [ ! -d "/usr/local/man/man1/testping.1.gz" ]; then
 else
     echo "Fehler beim Entfernen von Man Page!"
 fi
+
+crontab_content=$(crontab -l 2>/dev/null || echo "")
+job_pattern=".*testping.sh"
+
+if echo "$crontab_content" | grep -qE "$job_pattern"; then
+    echo "$crontab_content" | sed -E "/$job_pattern/d" | crontab -
+    echo "Cron-Job entfernt"
+else
+    echo "Kein entsprechender Cron-Job für testping gefunden"
+fi

@@ -11,6 +11,7 @@ if [ -f "src/main.sh" ]; then
     touch /usr/share/testping/log.txt
     touch /usr/share/testping/hosts
     cp src/config.cfg /usr/share/testping/config.cfg
+    dos2unix /usr/share/testping/config.cfg                         # Sonst kann man die Werte nicht lesen
 
     # Man page erstellen
     cp src/testping.1 /usr/local/share/man/man1/testping.1     # Man page file verschieben

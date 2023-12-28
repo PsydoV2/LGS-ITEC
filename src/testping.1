@@ -1,38 +1,65 @@
-.\" Manpage for testping
-.\" Contact Psydo for improvements and suggestions
-.TH testping 1 "December 2023" "Version 1.0" "testping"
+.TH testping 1 "Dezember 2023" "1.0" "testping man page"
+
 .SH NAME
-testping \- Bash script to perform various network operations
+testping \- Ein Skript zur Durchführung von Pings und Verwaltung von Hosts
 
-.SH SYNOPSIS
+.SH BESCHREIBUNG
+Das testping-Skript ermöglicht das Durchführen von Ping-Operationen und die Verwaltung von Hosts. Es bietet folgende Funktionen:
+
+.SH SYNTAX
 .B testping
-[\fIconfig | addhost IP_ADDRESS | hosts\fR]
+[\fIOPTION\fR]
 
-.SH DESCRIPTION
-This script performs various network operations such as pinging, editing configuration files, adding hosts, and displaying hosts.
+.SH OPTIONEN
+.TP
+.B config
+Öffnet die Konfigurationsdatei für testping zur Bearbeitung.
 
-.PP
-.SH OPTIONS
-.IP \fBconfig\fR
-Edit the configuration file.
-.IP \fBaddhost IP_ADDRESS\fR
-Add a new host with the specified IP_ADDRESS.
-.IP \fBhosts\fR
-Display the list of hosts.
+.TP
+.B addhost \fIIP_ADDRESS\fR
+Fügt eine IP-Adresse zur Liste der Hosts hinzu.
 
-.SH EXAMPLES
-Display the list of hosts:
-.nf
-.B testping hosts
-.fi
-.PP
-Add a new host with IP address "192.168.1.100":
-.nf
-.B testping addhost 192.168.1.100
-.fi
+.TP
+.B delhost \fIIP_ADDRESS\fR
+Entfernt eine IP-Adresse aus der Liste der Hosts.
 
-.SH AUTHOR
-Written by Sebastian Falter
+.TP
+.B hosts
+Zeigt die gespeicherten Hosts an.
 
-.SH REPORTING BUGS
-Report bugs to: seb.falter@gmail.com
+.TP
+.B install \fIMINUTES\fR
+Installiert einen Cron-Job, um das testping-Skript alle \fIMINUTES\fR Minuten auszuführen.
+
+.TP
+.B uninstall
+Deinstalliert den Cron-Job für das testping-Skript.
+
+.SH BEISPIELE
+Das Skript testping kann folgendermaßen verwendet werden:
+
+\fBtestping config\fR
+\fBtestping addhost 192.168.1.1\fR
+\fBtestping delhost 192.168.1.1\fR
+\fBtestping hosts\fR
+\fBtestping install 5\fR
+\fBtestping uninstall\fR
+
+.SH AUTOR
+Autor Sebastian Falter
+
+.SH VERSION
+1.0
+
+.SH SIEHE AUCH
+ping(8)
+
+.SH BUGS
+Keine bekannten Bugs.
+
+.SH COPYRIGHT
+Dies ist ein frei verfügbares Skript; Es gibt keine Lizenzbeschränkungen.
+
+.SH HINWEISE
+Dieses Skript wird ohne jegliche Garantie zur Verfügung gestellt.
+
