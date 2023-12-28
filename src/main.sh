@@ -2,4 +2,6 @@
 
 echo "Test"
 
-cat log.txt
+# cat log.txt
+
+pwd
