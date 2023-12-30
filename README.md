@@ -19,7 +19,7 @@ sudo bash uninstall.sh
 ## Usage
 
 ```bash
-testping
+testping [OPTIONS]
 ```
 
 ```bash

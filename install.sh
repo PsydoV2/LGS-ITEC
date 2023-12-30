@@ -16,9 +16,9 @@ if [ -f "src/main.sh" ]; then
     # Man page erstellen
     cp src/testping.1 /usr/local/share/man/man1/testping.1     # Man page file verschieben
     gzip /usr/local/man/man1/testping.1                        # Man page zip
-    mandb >> "" # man pages updaten
+    mandb > /dev/null # man pages updaten und output "löschen"
 
-    if [ -f "/usr/share/testping/testping.sh" ] && [ -f "/usr/bin/testping" ]; then
+    if [ -f "/usr/share/testping/testping.sh" ] && [ -f "/usr/bin/testping" ]; then # wenn verschieben und verknüpfung erstellen erfolgreich waren
 
         # Verknüpfung zu Skript
         chown root:users /usr/bin/testping    # sudo not required
@@ -30,9 +30,9 @@ if [ -f "src/main.sh" ]; then
         # Man page
         chown root:users /usr/local/man/man1/testping.1.gz    # man command usable
 
-        echo "Skript unter 'testping' verfügbar."
+        echo "Skript unter dem Befehl 'testping' verfügbar."
     else
-        echo "Fehler beim Installieren des Skripts."
+        echo "Fehler beim Installieren des Skripts (Dateien nicht gefunden)."
     fi
 else
     echo "Fehler beim Installieren des Skripts (Datei fehlt)."

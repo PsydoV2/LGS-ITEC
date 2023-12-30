@@ -40,7 +40,7 @@ pinging() {
     # echo "Zeitintervall: $zeitintervall"
 
     if [ $zeitintervall -eq 0 ]; then
-        zeitintervall=1     # Darf nicht 0 sein
+        zeitintervall=1     # Darf nicht 0 sein sonst fehler
     fi
 
 
@@ -137,7 +137,7 @@ case "$1" in
         uninstall
         ;;
     *)
-        pinging
+        man testping
         ;;
 esac
 

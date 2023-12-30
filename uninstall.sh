@@ -5,11 +5,11 @@ rm /usr/local/man/man1/testping.1.gz
 if [ ! -d "/usr/share/testping" ]; then
     echo "Programm Ordner entfernt!"
 else
-    echo "Fehler beim Entfernen von Programm Ordner!"
+    echo "Fehler beim Entfernen vom Ordner!"
 fi 
 
 if [ ! -f "usr/bin/testping" ]; then
-    echo "Skript verknüpfung entfernt!"
+    echo "Programmverknüpfung entfernt!"
 else 
     echo "Fehler beim Entfernen von Programmverknüpfung!"
 fi
