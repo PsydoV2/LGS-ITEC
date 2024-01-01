@@ -13,6 +13,11 @@ if [ -f "src/main.sh" ]; then
     cp src/config.cfg /usr/share/testping/config.cfg
     dos2unix /usr/share/testping/config.cfg                         # Sonst kann man die Werte nicht lesen
 
+    if [ ! -d /usr/local/share/man/man1 ]; then
+    mkdir -p /usr/local/share/man/man1
+    fi
+
+
     # Man page erstellen
     cp src/testping.1 /usr/local/share/man/man1/testping.1     # Man page file verschieben
     gzip /usr/local/man/man1/testping.1                        # Man page zip

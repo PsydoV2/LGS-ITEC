@@ -137,7 +137,7 @@ case "$1" in
         uninstall
         ;;
     *)
-        man testping
+        pinging
         ;;
 esac
 
