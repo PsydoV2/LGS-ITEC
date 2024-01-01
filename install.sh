@@ -14,9 +14,8 @@ if [ -f "src/main.sh" ]; then
     dos2unix /usr/share/testping/config.cfg                         # Sonst kann man die Werte nicht lesen
 
     if [ ! -d /usr/local/share/man/man1 ]; then
-    mkdir -p /usr/local/share/man/man1
+        mkdir -p /usr/local/share/man/man1
     fi
-
 
     # Man page erstellen
     cp src/testping.1 /usr/local/share/man/man1/testping.1     # Man page file verschieben
