@@ -6,6 +6,7 @@ if [ -f "src/main.sh" ]; then
     mkdir /usr/share/testping                                       # Ordner für alle Dateien erstellen
     cp src/main.sh /usr/share/testping/testping.sh                  # Skript verschieben
     ln -s /usr/share/testping/testping.sh /usr/bin/testping         # Skript als command verfügbar machen
+    dos2unix /usr/share/testping/testping.sh
     
     # Assets erstellen
     touch /usr/share/testping/log.txt

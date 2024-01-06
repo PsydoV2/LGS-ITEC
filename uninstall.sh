@@ -2,11 +2,15 @@ rm -rf /usr/share/testping
 rm /usr/bin/testping
 rm /usr/local/man/man1/testping.1.gz
 
+# Ordner
+
 if [ ! -d "/usr/share/testping" ]; then
     echo "Programm Ordner entfernt!"
 else
     echo "Fehler beim Entfernen vom Ordner!"
 fi 
+
+# Verknüpfung
 
 if [ ! -f "usr/bin/testping" ]; then
     echo "Programmverknüpfung entfernt!"
@@ -14,18 +18,23 @@ else
     echo "Fehler beim Entfernen von Programmverknüpfung!"
 fi
 
+# Man Page
+
 if [ ! -d "/usr/local/man/man1/testping.1.gz" ]; then
     echo "Man Page entfernt!"
 else
     echo "Fehler beim Entfernen von Man Page!"
 fi
 
+# Cron Job
+
+local crontab_content
 crontab_content=$(crontab -l 2>/dev/null || echo "")
-job_pattern=".*testping.sh"
+local job_pattern=".*testping\.sh"
 
 if echo "$crontab_content" | grep -qE "$job_pattern"; then
     echo "$crontab_content" | sed -E "/$job_pattern/d" | crontab -
-    echo "Cron-Job entfernt"
+    echo "Cron job entfernt!"
 else
-    echo "Kein entsprechender Cron-Job für testping gefunden"
+    echo "Kein Cron job gefunden!"
 fi

@@ -1,15 +1,16 @@
 #!/bin/bash
 
-# Install Done
-# Uninstall Done
+# TODO:
+# Install ✓
+# Uninstall ✓
 # Main Script
-    # ping  2/2 done
-    # config    3/3 done
-    # addhost   done
-    # delhost   done
-    # install cron 1/2 done
-    # uninstall cron done
-# Man Page Done
+    # ping  2/2 ✓
+    # config    3/3 ✓
+    # addhost   ✓
+    # delhost   ✓
+    # install cron 2/2 ✓
+    # uninstall cron ✓
+# Man Page ✓
 
 
 pinging() {
@@ -90,28 +91,41 @@ printhosts(){
     cat /usr/share/testping/hosts
 }
 
-install(){
-    if [ -n "$2" ]; then
-        (crontab -l ; echo "*/$2 * * * * /usr/share/testping/testping.sh") | crontab -
-        echo "Crontab Job alle $2 Minuten hinzugefügt"
-    else
-    echo "Minuten fehlen."
-    fi
-    
-}
 
-uninstall(){
+# Cron Job
 
-    local crontab_content=$(crontab -l 2>/dev/null || echo "")
-    local job_pattern=".*testping.sh"
+install() {
+    # (Kein Aufruf der uninstall Funktion um die Ausgaben anzupassen)
+    local crontab_content
+    crontab_content=$(crontab -l 2>/dev/null || echo "")
+    local job_pattern=".*testping\.sh"
 
     if echo "$crontab_content" | grep -qE "$job_pattern"; then
         echo "$crontab_content" | sed -E "/$job_pattern/d" | crontab -
-        echo "Cron-Job für testping entfernt"
+        echo "Bestehenden cron job aktualisiert"
+    fi
+
+    if [ -n "$2" ]; then
+        (crontab -l ; echo "*/$2 * * * * /usr/share/testping/testping.sh") | crontab -
+        echo "Crontab job alle $2 minuten hinzugefügt"
     else
-        echo "Kein entsprechender Cron-Job für testping gefunden"
+        echo "Minuten fehlen!"
     fi
 }
+
+uninstall() {
+    local crontab_content
+    crontab_content=$(crontab -l 2>/dev/null || echo "")
+    local job_pattern=".*testping\.sh"
+
+    if echo "$crontab_content" | grep -qE "$job_pattern"; then
+        echo "$crontab_content" | sed -E "/$job_pattern/d" | crontab -
+        echo "Cron job entfernt!"
+    else
+        echo "Kein Cron job gefunden!"
+    fi
+}
+
 
 
 case "$1" in
@@ -136,8 +150,11 @@ case "$1" in
     "uninstall")
         uninstall
         ;;
-    *)
+    "")
         pinging
+        ;;
+    *)
+        echo "Falsche Argumente übergeben!"
         ;;
 esac
 
