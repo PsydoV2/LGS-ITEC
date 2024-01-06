@@ -6,13 +6,13 @@ if [ -f "src/main.sh" ]; then
     mkdir /usr/share/testping                                       # Ordner für alle Dateien erstellen
     cp src/main.sh /usr/share/testping/testping.sh                  # Skript verschieben
     ln -s /usr/share/testping/testping.sh /usr/bin/testping         # Skript als command verfügbar machen
-    dos2unix /usr/share/testping/testping.sh
+    dos2unix /usr/share/testping/testping.sh                        # Konvertieren da es an einem Windows PC geschrieben wurde und es zu fehlern der Zeilenendungen kommen kann
     
     # Assets erstellen
     touch /usr/share/testping/log.txt
     touch /usr/share/testping/hosts
     cp src/config.cfg /usr/share/testping/config.cfg
-    dos2unix /usr/share/testping/config.cfg                         # Sonst kann man die Werte nicht lesen
+    dos2unix /usr/share/testping/config.cfg                         # Konvertieren da es an einem Windows PC geschrieben wurde und es zu fehlern der Zeilenendungen kommen kann
 
     if [ ! -d /usr/local/share/man/man1 ]; then
         mkdir -p /usr/local/share/man/man1
@@ -21,7 +21,7 @@ if [ -f "src/main.sh" ]; then
     # Man page erstellen
     cp src/testping.1 /usr/local/share/man/man1/testping.1     # Man page file verschieben
     gzip /usr/local/man/man1/testping.1                        # Man page zip
-    mandb > /dev/null # man pages updaten und output "löschen"
+    mandb > /dev/null # man pages updaten und output "verkleinern"
 
     if [ -f "/usr/share/testping/testping.sh" ] && [ -f "/usr/bin/testping" ]; then # wenn verschieben und verknüpfung erstellen erfolgreich waren
 

@@ -22,6 +22,6 @@ sudo bash uninstall.sh
 testping [OPTIONS]
 ```
 
-```bash
+```bash 
 man testping #Informations about usage of the command
 ```
