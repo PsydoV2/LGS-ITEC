@@ -22,7 +22,7 @@ pinging() {
     timeout=""
     zeitintervall=""
 
-    while IFS= read -r line; do
+    while read -r line; do
         case "$line" in
             "# Anzahl Pakete")
                 read -r anzahl_pakete
@@ -46,7 +46,7 @@ pinging() {
     echo "---------- Starte Pings ----------"
 
     # Schleife durch die Host-Datei und Ausführen eines Pings für jeden Host
-    while IFS= read -r line || [ -n "$line" ]; do
+    while read -r line || [ -n "$line" ]; do
         if [ -n "$line" ]; then
             echo "Ping wird ausgeführt für: $line"
 

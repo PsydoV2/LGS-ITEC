@@ -28,9 +28,8 @@ fi
 
 # Cron Job
 
-local crontab_content
 crontab_content=$(crontab -l 2>/dev/null || echo "")
-local job_pattern=".*testping\.sh"
+job_pattern=".*testping\.sh"
 
 if echo "$crontab_content" | grep -qE "$job_pattern"; then
     echo "$crontab_content" | sed -E "/$job_pattern/d" | crontab -
