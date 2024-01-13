@@ -33,7 +33,10 @@ if [ -f "src/main.sh" ]; then
         chmod -R 777 /usr/share/testping
 
         # Man page
-        chown root:users /usr/local/man/man1/testping.1.gz    # man command usable
+        chown root:users /usr/local/man/man1/testping.1.gz      # damit man die 'man' page öffnen kann
+
+        sudo setcap cap_net_raw+ep /bin/ping                    # Manchmal hat der user keine rechte 'ping' auszuführen
+
 
         echo "Skript unter dem Befehl 'testping' verfügbar."
     else
