@@ -2,6 +2,13 @@ rm -rf /usr/share/testping
 rm /usr/bin/testping
 rm /usr/local/man/man1/testping.1.gz
 
+
+read -p "Soll dos2unix wieder deinstalliert werden? (j/n): " answer
+if [ "$answer" = "j" ]; then
+    sudo apt-get remove dos2unix
+    echo "dos2unix deinstalliert."
+fi
+
 # Ordner
 
 if [ ! -d "/usr/share/testping" ]; then
