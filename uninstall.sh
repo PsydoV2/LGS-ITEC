@@ -5,7 +5,7 @@ rm /usr/local/man/man1/testping.1.gz
 
 read -p "Soll dos2unix wieder deinstalliert werden? (j/n): " answer
 if [ "$answer" = "j" ]; then
-    sudo apt-get remove --purge dos2unix -y
+    sudo apt-get remove --purge dos2unix -y > /dev/null
     echo "dos2unix deinstalliert."
 fi
 
