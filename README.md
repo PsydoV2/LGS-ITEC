@@ -1,4 +1,4 @@
-## Install
+## Installieren
 
 ### Das Skript benötigt dos2unix, um zu funktionieren! Sollte dos2unix noch nicht vorhanden sein, wird es automatisch installiert. Beim Entfernen des Skripts besteht die Möglichkeit, dos2unix ebenfalls zu entfernen.
 
@@ -12,18 +12,18 @@ cd ProjectScriptITEC
 sudo bash install.sh
 ```
 
-## Uninstall
+## Deinstallieren
 
 ```bash
 sudo bash uninstall.sh
 ```
 
-## Usage
+## Befehle
 
 ```bash
 testping [OPTIONS]
 ```
 
 ```bash 
-man testping #Informations about usage of the command
+man testping 
 ```
