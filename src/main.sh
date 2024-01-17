@@ -156,6 +156,9 @@ case "$1" in
     "uninstall")
         uninstall
         ;;
+    "printlog")
+        printlog
+    ;;
     "")
         pinging
         ;;
