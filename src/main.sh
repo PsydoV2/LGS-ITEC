@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# TODO:
 # Install ✓
 # Uninstall ✓
 # Main Script
@@ -11,8 +10,6 @@
     # install cron 2/2 ✓
     # uninstall cron ✓
 # Man Page ✓
-
-
 
 
 # Funktion für das Ausführen von Pings
@@ -136,10 +133,10 @@ case "$1" in
         editConfig
         ;;
     "addhost")
-        addhost "$@"
+        addhost "$2"
         ;;
     "delhost")
-        delhost "$@"
+        delhost "$2"
         ;;
     "hosts")
         printhosts
@@ -148,7 +145,7 @@ case "$1" in
         man testping
         ;;
     "install")
-        install "$@"
+        install "$2"
         ;;
     "uninstall")
         uninstall
