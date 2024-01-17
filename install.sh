@@ -2,23 +2,15 @@
 
 if [ -f "src/main.sh" ]; then
 
-    # Überprüfen ob dos2unix installiert ist um den befehl nutzen zu können
-    if ! which dos2unix >/dev/null 2>&1 ; then
-        echo "Installiere dos2unix..."
-        sudo apt-get install dos2unix > /dev/null
-    fi
-
     # Skript erstellen
     mkdir /usr/share/testping                                       # Ordner für alle Dateien erstellen
     cp src/main.sh /usr/share/testping/testping.sh                  # Skript verschieben
     ln -s /usr/share/testping/testping.sh /usr/bin/testping         # Skript als command verfügbar machen
-    dos2unix /usr/share/testping/testping.sh                        # Konvertieren da es an einem Windows PC geschrieben wurde und es zu fehlern der Zeilenendungen kommen kann
     
     # Assets erstellen
     touch /usr/share/testping/log.txt
     touch /usr/share/testping/hosts
     cp src/config.cfg /usr/share/testping/config.cfg
-    dos2unix /usr/share/testping/config.cfg                         # Konvertieren da es an einem Windows PC geschrieben wurde und es zu fehlern der Zeilenendungen kommen kann
 
     if [ ! -d /usr/local/share/man/man1 ]; then
         mkdir -p /usr/local/share/man/man1
