@@ -1,71 +1,82 @@
-.TH testping 1 "Dezember 2023" "1.0" "testping man page"
+.TH TESTPING 1 "Januar 2024" "Version 1.0" "testping Manual"
 
 .SH NAME
-testping \- Ein Skript zur Durchführung von Pings und Verwaltung von Hosts
+testping \- Dienstprogramm zum gleichzeitigen Pingen mehrerer Hosts und zur Verwaltung von Konfigurationen
 
-.SH BESCHREIBUNG
-Das testping-Skript ermöglicht das Durchführen von Ping-Operationen und die Verwaltung von Hosts. Es bietet folgende Funktionen:
-
-.SH SYNTAX
+.SH SYNOPSIS
 .B testping
 [\fIOPTION\fR]
 
+.SH BESCHREIBUNG
+Das \fBtestping\fR-Skript ermöglicht das gleichzeitige Pingen mehrerer Hosts, das Bearbeiten von Konfigurationen und die Verwaltung einer Liste von Hosts. Es bietet auch Optionen zum Installieren und Deinstallieren eines Cron-Jobs für periodisches Pingen.
+
 .SH OPTIONEN
 .TP
-.B config
-Öffnet die Konfigurationsdatei für testping zur Bearbeitung.
-
+\fBconfig\fR
+Bearbeiten Sie die Konfigurationsdatei mit dem nano-Editor.
 .TP
-.B addhost \fIIP_ADDRESS\fR
-Fügt eine IP-Adresse zur Liste der Hosts hinzu.
-
+\fBaddhost [IP]\fR
+Fügt einen Host zur Liste der zu pingenden Hosts hinzu.
 .TP
-.B delhost \fIIP_ADDRESS\fR
-Entfernt eine IP-Adresse aus der Liste der Hosts.
-
+\fBdelhost [IP]\fR
+Entfernt einen Host aus der Liste der Hosts.
 .TP
-.B hosts
-Zeigt die gespeicherten Hosts an.
-
+\fBhosts\fR
+Zeigt die Liste der gespeicherten Hosts an.
 .TP
-.B install \fIMINUTES\fR
-Installiert einen Cron-Job, um das testping-Skript alle \fIMINUTES\fR Minuten auszuführen.
-
+\fB-h\fR
+Zeigt diese Hilfemeldung an.
 .TP
-.B uninstall
-Deinstalliert den Cron-Job für das testping-Skript.
-
+\fBinstall [MINUTEN]\fR
+Installiert einen Cron-Job, um das testping-Skript regelmäßig auszuführen. Der Cron-Job wird alle angegebenen Minuten ausgeführt.
+.TP
+\fBuninstall\fR
+Deinstalliert den Cron-Job.
+.TP
+\fBprintlog\fR
+Zeigt Protokolle von nicht erreichbaren Hosts an.
+.TP
+(Keine Option)
+Führt Ping-Tests für alle Hosts in der Liste durch.
 .SH BEISPIELE
-Das Skript testping kann folgendermaßen verwendet werden:
-
+.B testping
+Führt Ping-Tests für alle Hosts in der Liste durch.
+.BR
 .B testping config
+Bearbeitet die Konfigurationsdatei.
 .BR
 .B testping addhost 192.168.1.1
+Fügt den Host 192.168.1.1 zur Liste hinzu.
 .BR
 .B testping delhost 192.168.1.1
+Entfernt den Host 192.168.1.1 aus der Liste.
 .BR
 .B testping hosts
+Zeigt die Liste der gespeicherten Hosts an.
+.BR
+.B testping -h
+Zeigt Hilfeinformationen an.
 .BR
 .B testping install 5
+Installiert einen Cron-Job, um das Skript alle 5 Minuten auszuführen.
 .BR
 .B testping uninstall
-
-
+Deinstalliert den Cron-Job.
+.BR
+.B testping printlog
+Zeigt Protokolle von nicht erreichbaren Hosts an.
+.SH DATEIEN
+\fB/usr/share/testping/config.cfg\fR
+Konfigurationsdatei für testping.
+.BR
+\fB/usr/share/testping/hosts\fR
+Datei mit einer Liste von Hosts.
+.BR
+\fB/usr/share/testping/log.txt\fR
+Protokolldatei für nicht erreichbare Hosts.
 .SH AUTOR
-Autor Sebastian Falter
+Geschrieben von Sebastian Falter.
 
-.SH VERSION
-1.0
 
-.SH SIEHE AUCH
-ping(8)
-
-.SH BUGS
-Keine bekannten Bugs.
-
-.SH COPYRIGHT
-Dies ist ein frei verfügbares Skript; Es gibt keine Lizenzbeschränkungen.
-
-.SH HINWEISE
-Dieses Skript wird ohne jegliche Garantie zur Verfügung gestellt.
-
+.SH URHEBERRECHT
+Dieses Skript wird unter der MIT-Lizenz veröffentlicht.
