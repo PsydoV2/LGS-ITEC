@@ -128,6 +128,11 @@ uninstall() {
     fi
 }
 
+printlog() {
+    echo "Logs:"
+    cat /usr/share/testping/log.txt 
+}
+
 
 case "$1" in
     "config")
