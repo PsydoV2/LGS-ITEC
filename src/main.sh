@@ -52,8 +52,9 @@ pinging() {
 
             # Überprüfen des Ping-Status und schreiben der logs
             if [ $? -ne 0 ]; then
+                current_date=$(date +"%Y-%m-%d %H:%M:%S")
                 echo "$line ist nicht erreichbar!"
-                echo "$line" >> /usr/share/testping/log.txt
+                echo "IP: $line Datum: $current_date" >> /usr/share/testping/log.txt
             fi
 
             echo "-------------------------"
