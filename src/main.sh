@@ -158,7 +158,7 @@ case "$1" in
         ;;
     "printlog")
         printlog
-    ;;
+        ;;
     "")
         pinging
         ;;
