@@ -133,10 +133,10 @@ case "$1" in
         editConfig
         ;;
     "addhost")
-        addhost "$2"
+        addhost "$@"
         ;;
     "delhost")
-        delhost "$2"
+        delhost "$@"
         ;;
     "hosts")
         printhosts
@@ -145,7 +145,7 @@ case "$1" in
         man testping
         ;;
     "install")
-        install "$2"
+        install "$@"
         ;;
     "uninstall")
         uninstall
