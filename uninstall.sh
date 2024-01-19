@@ -1,6 +1,7 @@
-cp /usr/bin/testping/log.txt ./log-backup.txt
-cp /usr/bin/testping/hosts ./hosts-backup.txt
-cp /usr/bin/testping/config.cfg ./config-backup.cfg
+cp /usr/share/testping/log.txt ./log-backup.txt
+cp /usr/share/testping/hosts ./hosts-backup.txt
+cp /usr/share/testping/config.cfg ./config-backup.cfg
+
 
 rm -rf /usr/share/testping
 rm /usr/bin/testping
