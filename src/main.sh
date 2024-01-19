@@ -1,5 +1,5 @@
 #!/bin/bash
-
+ 
 # Install ✓
 # Uninstall ✓
 # Main Script
