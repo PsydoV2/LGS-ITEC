@@ -70,8 +70,12 @@ editConfig() {
 # Funktion zum Hinzufügen eines Hosts zur Host-Datei
 addhost() {
     if [ -n "$2" ]; then
-        echo "$2" >> /usr/share/testping/hosts
-        echo "$2 hinzugefügt!"
+        if ! grep -q "$2" /usr/share/testping/hosts; then
+            echo "$2" >> /usr/share/testping/hosts
+            echo "$2 hinzugefügt!"
+        else
+            echo "Der Host $2 existiert bereits."
+        fi
     else
         echo "Keine IP-Adresse angegeben."
     fi
