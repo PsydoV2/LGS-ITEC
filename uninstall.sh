@@ -1,4 +1,7 @@
-mkdir BackUp
+if ! -d ./BackUp; then
+    mkdir BackUp
+fi
+
 cp /usr/share/testping/log.txt ./BackUp/log-backup.txt
 cp /usr/share/testping/hosts ./BackUp/hosts-backup.txt
 cp /usr/share/testping/config.cfg ./BackUp/config-backup.cfg
