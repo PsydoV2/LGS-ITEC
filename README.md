@@ -16,6 +16,8 @@ sudo bash install.sh
 sudo bash uninstall.sh
 ```
 
+#### Beim deinstallieren werden BackUps der log, host und config Datei erstellt und im aktuellen Verzeichnis gespeichert!
+
 ## Befehle
 
 ```bash
