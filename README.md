@@ -21,8 +21,8 @@ It demonstrates knowledge in:
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/PsydoV2/LGS-ITEC
-cd LGS-ITEC
+git clone https://github.com/PsydoV2/LGS-ITEC-BashScript
+cd LGS-ITEC-BashScript
 sudo bash install.sh
 ````
 
@@ -74,7 +74,7 @@ man testping
 ## 📁 Project Structure
 
 ```
-LGS-ITEC/
+LGS-ITEC-BashScript/
 ├── install.sh         # Installs the command globally
 ├── uninstall.sh       # Removes the tool and creates backups
 ├── src/               # Source files for the command
