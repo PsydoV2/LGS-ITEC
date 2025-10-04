@@ -1,7 +1,7 @@
 ## Installieren
 
 ```bash
-git clone https://github.com/PsydoV2/ProjectScriptITEC 
+git clone https://github.com/PsydoV2/LGS-ITEC
 ```
 ```bash
 cd ProjectScriptITEC
